@@ -1,0 +1,54 @@
+{
+  "name": "@zanejs/icons",
+  "version": "1.0.0",
+  "description": "Stencil Component for icon",
+  "keywords": [
+    "icon",
+    "web-component"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "stencil build --prod --es5 --watch",
+    "build": "stencil build --docs",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate",
+    "transform": "node scripts/transfer-svg.mjs",
+    "stub": "pnpm run build"
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/esm/loader.js",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs.js",
+      "default": "./dist/index.js"
+    },
+    "./loader": {
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs.js"
+    },
+    "./*": "./*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@stencil/core": "^4.41.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.0.7",
+    "jest": "^30.2.0",
+    "jest-cli": "^30.2.0",
+    "puppeteer": "^24.35.0",
+    "svgo": "^4.0.0"
+  }
+}

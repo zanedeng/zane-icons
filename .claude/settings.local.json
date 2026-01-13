@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -1 /Users/zane/资料/宗恒/项目/zane-icons/svg/*.svg)"
+    ]
+  }
+}
