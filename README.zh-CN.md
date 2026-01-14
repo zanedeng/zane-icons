@@ -9,27 +9,28 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-007acc?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Stencil](https://img.shields.io/badge/Stencil-2F9E44?logo=stencil&logoColor=white)](https://stenciljs.com/)
 
-**English** | [中文](./README.zh-CN.md)
+
+**中文** | [English](./README.md)
 
 </div>
 
-## Introduction
+## 简介
 
-A modern native Web Components icon library built with Stencil, containing 285+ meticulously designed SVG icons. Framework-agnostic, works in JS/Vue/React/Angular projects.
+一个基于 Stencil 构建的现代化原生 Web Components 图标库，包含 285+ 个精心设计的 SVG 图标，不受框架限制，运行在 JS/Vue/React/Angular 项目。
 
-## Features
+## 特性
 
-- **285+ Icons**: Rich icon set covering common UI scenarios
-- **Web Component**: Native Custom Elements, supports all modern frameworks
-- **High Performance**: Optimized by Stencil compiler
-- **Easy to Use**: Simple HTML tags for usage
-- **Customizable**: Supports CSS custom properties and style overrides
-- **Multiple Format Support**: ESM, CommonJS, and UMD
-- **TypeScript Support**: Complete type definitions
-- **Responsive**: Adapts to various screen sizes
-- **Dual-tone Support**: Supports both filled and outline styles
+- **285+ 图标**：涵盖常用 UI 场景的丰富图标集
+- **Web Component**：原生 Custom Elements，支持所有现代框架
+- **高性能**：基于 Stencil 编译器优化
+- **易使用**：简单的 HTML 标签即可使用
+- **可定制**：支持 CSS 自定义属性和样式覆盖
+- **多格式支持**：ESM、CommonJS 和 UMD
+- **TypeScript 支持**：完整的类型定义
+- **响应式**：适配各种屏幕尺寸
+- **双色调支持**：支持 filled 和 outline 两种风格
 
-## Installation
+## 安装
 
 ### NPM
 
@@ -49,35 +50,35 @@ pnpm add @zanejs/icons
 yarn add @zanejs/icons
 ```
 
-## Quick Start
+## 快速开始
 
-### Basic Usage
+### 基础用法
 
-Use directly in HTML:
+直接在 HTML 中使用：
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/@zanejs/icons@1.0.1/dist/zane-icons/zane-icons.esm.js"></script>
   <title>Zane Icons Demo</title>
 </head>
-<body></body>
-  <!-- Use search icon -->
+<body>
+  <!-- 使用搜索图标 -->
   <zane-icon-search style="font-size: 32px; color: #333;"></zane-icon-search>
 
-  <!-- Use user icon -->
+  <!-- 使用用户图标 -->
   <zane-icon-user style="font-size: 24px; color: #666;"></zane-icon-user>
 
-  <!-- Use close icon -->
+  <!-- 使用关闭图标 -->
   <zane-icon-close-bold style="font-size: 20px; color: #999;"></zane-icon-close-bold>
 </body>
 </html>
 ```
 
-### Usage in React
+### 在 React 中使用
 
 ```diff
 import React from 'react';
@@ -109,7 +110,7 @@ function MyComponent() {
 
 ```
 
-### Usage in Vue
+### 在 Vue 中使用
 
 
 ```diff
@@ -124,7 +125,7 @@ import App from './App.vue';
 createApp(App).mount('#app')
 ```
 
-Modify vite.config.js for Vue compilation compatibility with custom elements:
+修改 vite.config.js，vue 编译兼容自定义元素
 
 ```diff
 import { defineConfig } from 'vite';
@@ -140,9 +141,9 @@ export default defineConfig({
 });
 ```
 
-## Icon Categories
+## 图标分类
 
-### Arrows & Navigation
+### 箭头导航 (Arrows)
 - `zane-icon-arrow-up` / `zane-icon-arrow-up-bold`
 - `zane-icon-arrow-down` / `zane-icon-arrow-down-bold`
 - `zane-icon-arrow-left` / `zane-icon-arrow-left-bold`
@@ -157,7 +158,7 @@ export default defineConfig({
 - `zane-icon-expand`
 - `zane-icon-pointer`
 
-### Common Actions
+### 通用操作 (Actions)
 - `zane-icon-search`
 - `zane-icon-plus`
 - `zane-icon-check`
@@ -171,7 +172,7 @@ export default defineConfig({
 - `zane-icon-scissor`
 - `zane-icon-copy`
 
-### Status Feedback
+### 状态反馈 (Status)
 - `zane-icon-success-filled`
 - `zane-icon-warning` / `zane-icon-warning-filled`
 - `zane-icon-info-filled`
@@ -180,23 +181,23 @@ export default defineConfig({
 - `zane-icon-checked`
 - `zane-icon-failed`
 
-### Notifications
+### 通知提醒 (Notifications)
 - `zane-icon-bell` / `zane-icon-bell-filled`
 - `zane-icon-mute-notification`
 
-### User Related
+### 用户相关 (User)
 - `zane-icon-user` / `zane-icon-user-filled`
 - `zane-icon-avatar`
 - `zane-icon-key`
 
-### Location
+### 位置定位 (Location)
 - `zane-icon-location-filled`
 - `zane-icon-map-location`
 - `zane-icon-position`
 - `zane-icon-place`
 - `zane-icon-add-location`
 
-### Media Control
+### 媒体控制 (Media)
 - `zane-icon-video-camera-filled`
 - `zane-icon-video-pause`
 - `zane-icon-microphone`
@@ -205,7 +206,7 @@ export default defineConfig({
 - `zane-icon-watch`
 - `zane-icon-alarm-clock`
 
-### Shopping & Business
+### 购物商务 (Shopping & Business)
 - `zane-icon-shopping-bag`
 - `zane-icon-wallet`
 - `zane-icon-price-tag`
@@ -215,7 +216,7 @@ export default defineConfig({
 - `zane-icon-briefcase`
 - `zane-icon-platform`
 
-### Tools & Settings
+### 工具设置 (Tools)
 - `zane-icon-tools`
 - `zane-icon-setting`
 - `zane-icon-management`
@@ -223,18 +224,18 @@ export default defineConfig({
 - `zane-icon-cpu`
 - `zane-icon-switch-button`
 
-### Charts & Statistics
+### 图表统计 (Charts)
 - `zane-icon-pie-chart`
 - `zane-icon-trend-charts`
 - `zane-icon-histogram`
 - `zane-icon-data-board`
 
-### Sports
+### 体育运动 (Sports)
 - `zane-icon-soccer`
 - `zane-icon-baseball`
 - `zane-icon-basketball`
 
-### Food & Drink
+### 食物饮料 (Food & Drink)
 - `zane-icon-coffee`
 - `zane-icon-mug`
 - `zane-icon-cold-drink`
@@ -250,34 +251,34 @@ export default defineConfig({
 - `zane-icon-apple`
 - `zane-icon-sugar`
 
-### Transportation
+### 交通出行 (Transportation)
 - `zane-icon-bicycle`
 - `zane-icon-ship`
 
-### Buildings & Facilities
+### 建筑设施 (Buildings)
 - `zane-icon-house`
 - `zane-icon-home-filled`
 - `zane-icon-school`
 - `zane-icon-first-aid-kit`
 
-### Science
+### 自然科学 (Science)
 - `zane-icon-magnet`
 - `zane-icon-lightning`
 
-### Entertainment
+### 休闲娱乐 (Entertainment)
 - `zane-icon-trophy`
 - `zane-icon-gold-medal`
 
-### Weather
+### 天气相关 (Weather)
 - `zane-icon-sunrise`
 - `zane-icon-partly-cloudy`
 - `zane-icon-umbrella`
 
-### Health & Safety
+### 健康安全 (Health & Safety)
 - `zane-icon-smoking`
 - `zane-icon-no-smoking`
 
-### Others
+### 其他 (Others)
 - `zane-icon-star-filled`
 - `zane-icon-flag`
 - `zane-icon-opportunity`
@@ -289,181 +290,181 @@ export default defineConfig({
 - `zane-icon-calendar`
 - `zane-icon-camera-filled`
 
-> 💡 **Tip**: Complete icon list can be found in the `dist/zane-icon.md` file after running `npm run build`
+> 💡 **提示**：完整的图标列表可以在运行 `npm run build` 后查看 `dist/zane-icon.md` 文件
 
-## Custom Styling
+## 自定义样式
 
-### Changing Size
+### 修改大小
 
 ```css
-/* Global setting */
+/* 全局设置 */
 zane-icon-search {
-  font-size: 32px; /* Default 16px */
+  font-size: 32px; /* 默认 16px */
 }
 
-/* Individual setting */
+/* 单独设置 */
 .icon-large {
   font-size: 48px;
 }
 ```
 
-### Changing Color
+### 修改颜色
 
 ```css
-/* Using currentColor */
+/* 使用 currentColor */
 zane-icon-user {
   color: #333;
 }
 
-/* Inheriting parent element color */
+/* 继承父元素颜色 */
 .parent-element {
   color: #007acc;
 }
 .parent-element zane-icon-search {
-  /* Inherits #007acc */
+  /* 继承 #007acc */
 }
 
-/* Using CSS custom properties */
+/* 使用 CSS 自定义属性 */
 zane-icon-star-filled {
   --icon-color: gold;
   color: var(--icon-color);
 }
 ```
 
-### Custom SVG Attributes
+### 自定义 SVG 属性
 
 ```html
 <zane-icon-search
   style="font-size: 32px; color: #333;"
   fill="currentColor"
   stroke="none"
-  aria-label="Search icon"
+  aria-label="搜索图标"
   role="img"
 />
 ```
 
-## Development Guide
+## 开发指南
 
-### Requirements
+### 环境要求
 
 - Node.js >= 16
-- pnpm (recommended) or npm
+- pnpm (推荐) 或 npm
 
-### Install Dependencies
+### 安装依赖
 
 ```bash
 pnpm install
 ```
 
-### Development Mode
+### 开发模式
 
 ```bash
-# Start development server (with watch mode)
+# 启动开发服务器（带监视模式）
 pnpm run start
 
-# Run tests
+# 运行测试
 pnpm run test
 ```
 
-### Build Project
+### 构建项目
 
 ```bash
-# Build production version
+# 构建生产版本
 pnpm run build
 
-# Or use stub command
+# 或使用 stub 命令
 pnpm run stub
 ```
 
-### Generate Components
+### 生成组件
 
-Icon components are automatically generated from SVG files:
+图标组件是从 SVG 文件自动生成的：
 
-1. Place SVG files in the `svg/` directory
-2. Run `npm run transform` to convert icons
-3. Run `npm run build` to build components
+1. 将 SVG 文件放入 `svg/` 目录
+2. 运行 `npm run transform` 转换图标
+3. 运行 `npm run build` 构建组件
 
-### Convert SVG Icons
+### 转换 SVG 图标
 
 ```bash
 npm run transform
 ```
 
-This command will:
-- Read all SVG files in the `svg/` directory
-- Optimize SVG code using SVGO
-- Convert optimized SVGs to Stencil components
-- Generate to the `src/components/` directory
+这个命令会：
+- 读取 `svg/` 目录下的所有 SVG 文件
+- 使用 SVGO 优化 SVG 代码
+- 将优化的 SVG 转换为 Stencil 组件
+- 生成到 `src/components/` 目录
 
-## Project Structure
+## 项目结构
 
 ```
 zane-icons/
-├── svg/                      # Original SVG icon files
+├── svg/                      # 原始 SVG 图标文件
 │   ├── search.svg
 │   ├── user.svg
 │   └── ...
-├── src/                      # Source code
-│   ├── components/           # Generated component files
+├── src/                      # 源代码
+│   ├── components/           # 生成的组件文件
 │   │   ├── search.tsx
 │   │   ├── user.tsx
 │   │   └── ...
-│   ├── index.ts             # Component index
-│   └── index.html           # Example page
-├── dist/                     # Build output directory
-├── loader/                   # Component loader
-├── scripts/                  # Build scripts
-│   └── transfer-svg.mjs      # SVG conversion script
-├── stencil.config.ts         # Stencil configuration
+│   ├── index.ts             # 组件索引
+│   └── index.html           # 示例页面
+├── dist/                     # 构建输出目录
+├── loader/                   # 组件加载器
+├── scripts/                  # 构建脚本
+│   └── transfer-svg.mjs      # SVG 转换脚本
+├── stencil.config.ts         # Stencil 配置
 ├── package.json
 └── README.md
 ```
 
-## Technology Stack
+## 技术栈
 
-- **[Stencil](https://stenciljs.com/)** - Component compiler
-- **[TypeScript](https://www.typescriptlang.org/)** - Type safety
-- **[SVGO](https://github.com/svg/svgo)** - SVG optimization
-- **[Jest](https://jestjs.io/)** - Unit testing
-- **[Puppeteer](https://pptr.dev/)** - End-to-end testing
+- **[Stencil](https://stenciljs.com/)** - 组件编译器
+- **[TypeScript](https://www.typescriptlang.org/)** - 类型安全
+- **[SVGO](https://github.com/svg/svgo)** - SVG 优化
+- **[Jest](https://jestjs.io/)** - 单元测试
+- **[Puppeteer](https://pptr.dev/)** - 端到端测试
 
-## Contributing
+## 🤝 贡献
 
-Issues and Pull Requests are welcome!
+欢迎提交 Issue 和 Pull Request！
 
-### Contribution Process
+### 贡献流程
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 打开 Pull Request
 
-### Adding New Icons
+### 添加新图标
 
-1. Prepare SVG files that meet the specifications:
-   - Dimensions: 1024x1024
-   - Color: Use `currentColor` to inherit parent element color
-   - Minimization: Remove unnecessary metadata
+1. 准备符合规范的 SVG 文件：
+   - 尺寸：1024x1024
+   - 颜色：使用 `currentColor` 以便继承父元素颜色
+   - 最小化：去除不必要的元数据
 
-2. Place SVG files in the `svg/` directory
+2. 将 SVG 文件放入 `svg/` 目录
 
-3. Run the conversion commands:
+3. 运行转换命令：
    ```bash
    npm run transform
    npm run build
    ```
 
-4. Commit the generated component files
+4. 提交生成的组件文件
 
-## License
+## 许可证
 
-This project is open source under the [MIT](LICENSE) license.
+本项目基于 [MIT](LICENSE) 许可证开源。
 
-## Acknowledgments
+## 致谢
 
-Thanks to all developers who have contributed to this project!
+感谢所有为这个项目做出贡献的开发者们！
 
 ---
 
-⭐ If this project helps you, please give it a star!
+如果这个项目对你有帮助，请给它一个星标！

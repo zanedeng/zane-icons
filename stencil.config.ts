@@ -10,6 +10,9 @@ export const config: Config = {
     {
       esmLoaderPath: '../loader',
       type: 'dist',
+      copy: [
+        {src: '../logo.svg', dest: '../logo.svg'}
+      ]
     },
     {
       customElementsExportBehavior: 'auto-define-custom-elements',

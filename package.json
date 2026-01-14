@@ -1,6 +1,6 @@
 {
   "name": "@zanejs/icons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Stencil Component for icon",
   "keywords": [
     "icon",
@@ -15,7 +15,9 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "transform": "node scripts/transfer-svg.mjs",
-    "stub": "pnpm run build"
+    "stub": "pnpm run build",
+    "publish": "npm publish",
+    "clean": "node ./scripts/clean.mjs"
   },
   "files": [
     "dist/",
