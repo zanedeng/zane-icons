@@ -1,0 +1,11 @@
+import { Component, Host, h } from '@stencil/core';
+
+  @Component({
+    tag: 'zane-icon-strikethrough-2'
+  })
+  export class ZaneIconStrikethrough2 {
+    render() {
+      return <Host class="zane-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 9H11V6H5V4H19V6H13V9ZM13 15V20H11V15H13ZM3 11H21V13H3V11Z"/></svg></Host>;
+    }
+  }
+  

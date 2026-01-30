@@ -1,0 +1,11 @@
+import { Component, Host, h } from '@stencil/core';
+
+  @Component({
+    tag: 'zane-icon-stacked-chart-fill'
+  })
+  export class ZaneIconStackedChartFill {
+    render() {
+      return <Host class="zane-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 21H3V13H8V21ZM14.5 21H9.5V15H14.5V21ZM21 21H16V17H21V21ZM14.5 14H9.5V3H14.5V14ZM21 16H16V8H21V16ZM8 12H3V8H8V12Z"/></svg></Host>;
+    }
+  }
+  

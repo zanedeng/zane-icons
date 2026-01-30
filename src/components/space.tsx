@@ -1,0 +1,11 @@
+import { Component, Host, h } from '@stencil/core';
+
+  @Component({
+    tag: 'zane-icon-space'
+  })
+  export class ZaneIconSpace {
+    render() {
+      return <Host class="zane-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 9V13H20V9H22V14C22 14.5523 21.5523 15 21 15H3C2.44772 15 2 14.5523 2 14V9H4Z"/></svg></Host>;
+    }
+  }
+  

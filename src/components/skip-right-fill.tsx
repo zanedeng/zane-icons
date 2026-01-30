@@ -1,0 +1,11 @@
+import { Component, Host, h } from '@stencil/core';
+
+  @Component({
+    tag: 'zane-icon-skip-right-fill'
+  })
+  export class ZaneIconSkipRightFill {
+    render() {
+      return <Host class="zane-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17 6 17 18H15L15 6 17 6ZM13 12 7 18V6L13 12Z"/></svg></Host>;
+    }
+  }
+  

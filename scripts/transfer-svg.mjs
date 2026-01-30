@@ -1,5 +1,5 @@
 import { promises as fs, readdir, readFileSync, writeFile } from 'node:fs';
-import { join } from 'node:path';
+import { join, basename, dirname } from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
 
 import { optimize } from 'svgo';
@@ -46,14 +46,36 @@ const transferSvg = (svgFile) => {
   });
 };
 
-// 异步获取目录下的所有svg文件列表
-const getSvgFiles = (dir) => {
+// 异步递归获取目录下的所有svg文件路径列表和目录分类
+const getSvgFiles = (dir, baseDir = dir) => {
   return new Promise((resolve, reject) => {
-    readdir(dir, 'utf8', (err, files) => {
+    readdir(dir, { withFileTypes: true }, (err, files) => {
       if (err) {
         reject(err);
       } else {
-        resolve(files);
+        const promises = files.map(async (file) => {
+          const filePath = join(dir, file.name);
+          if (file.isDirectory()) {
+            // 如果是目录，递归获取子目录中的文件
+            return getSvgFiles(filePath, baseDir);
+          } else if (file.name.endsWith('.svg')) {
+            // 如果是svg文件，返回绝对路径和相对目录路径
+            const relativePath = dirname(filePath).replace(baseDir + '/', '');
+            return {
+              filePath,
+              category: relativePath,
+              baseName: basename(filePath, '.svg')
+            };
+          }
+        });
+
+        Promise.all(promises)
+          .then((results) => {
+            // 扁平化结果
+            const flatResults = results.flat();
+            resolve(flatResults.filter(Boolean));
+          })
+          .catch(reject);
       }
     });
   });
@@ -88,9 +110,8 @@ const renderCode = (name, ctx) => {
 export const swcIconTemplate = (entry, outDir) => {
   getSvgFiles(entry).then((res) => {
     const icon = res
-      .map((val) => {
-        const str = val.replace('.svg', '');
-        return `<zane-icon-${str} style="margin-right: 10px;"></zane-icon-${str}>\n`;
+      .map((item) => {
+        return `<zane-icon-${item.baseName} style="margin-right: 10px;"></zane-icon-${item.baseName}>\n`;
       })
       .join('');
 
@@ -109,16 +130,27 @@ export const swcIconTemplate = (entry, outDir) => {
  */
 const renderCompFile = (entry, outDir) => {
   const componentsList = [];
+  const categoryMap = {}; // 用于记录分类和组件的映射关系
+
   getSvgFiles(entry)
     .then((res) => {
-      return res.map(async (c) => {
-        const svgFileContent = readFileSync(`${entry}/${c}`, 'utf8');
+      return res.map(async (item) => {
+        const svgFileContent = readFileSync(item.filePath, 'utf8');
         const svg = await transferSvg(svgFileContent);
-        const name = c.replace('.svg', '');
+        const name = item.baseName;
         componentsList.push(name);
+
+        // 记录分类信息，如果category为空则归类为'root'
+        const category = item.category || 'root';
+        if (!categoryMap[category]) {
+          categoryMap[category] = [];
+        }
+        categoryMap[category].push(name);
+
         return {
           content: svg,
           name,
+          category,
         };
       });
     })
@@ -135,10 +167,39 @@ const renderCompFile = (entry, outDir) => {
             });
           }
         });
-        // 入口文件组件
+
+        // 生成包含分类信息的入口文件
+        const categoryExport = Object.entries(categoryMap)
+          .map(([cat, icons]) => {
+            return `  '${cat}': [${icons.map(icon => `\n    '${icon}'`).join(',')}\n  ],`;
+          })
+          .join('\n');
+
         writeFile(
           `${outDir}/index.ts`,
-          `const icons = [${componentsList.map((c) => `\n'${c}'`)}\n];\nexport default icons;`,
+          `const icons = [${componentsList.map((c) => `\n'${c}'`)}\n];
+
+const iconCategories = {
+${categoryExport}
+};
+
+export default icons;
+export { iconCategories };`,
+          (err) => {
+            if (err) {
+              throw err;
+            }
+          },
+        );
+
+        // 生成一个独立的分类索引文件
+        writeFile(
+          `${outDir}/categories.ts`,
+          `const iconCategories = {
+${categoryExport}
+};
+
+export default iconCategories;`,
           (err) => {
             if (err) {
               throw err;

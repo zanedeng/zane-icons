@@ -1,0 +1,11 @@
+import { Component, Host, h } from '@stencil/core';
+
+  @Component({
+    tag: 'zane-icon-arrow-drop-right-fill'
+  })
+  export class ZaneIconArrowDropRightFill {
+    render() {
+      return <Host class="zane-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 12L10 16V8L14 12Z"/></svg></Host>;
+    }
+  }
+  
